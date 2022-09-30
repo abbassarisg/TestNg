@@ -37,20 +37,49 @@ public class C01_PageClassFaceBookTest {
 //        //Basarili giris yapilamadigini test edin
 //        Assert.assertTrue(facebookPage.girisYapilmadi.isDisplayed());
 
-       Boolean mail=faceBookPage.emailYanlisGirisYapilamadi.isDisplayed();
-       Boolean kisi=faceBookPage.kisiTeyitGirisYapilamadi.isDisplayed();
-       Boolean sifre=faceBookPage.sifreYanlisGirisYapilamadi.isDisplayed();
-        System.out.println(sifre);
-        System.out.println(kisi);
-        System.out.println(mail);
+//       Boolean mail=faceBookPage.emailYanlisGirisYapilamadi.isDisplayed();
+//       Boolean kisi=faceBookPage.kisiTeyitGirisYapilamadi.isDisplayed();
+//       Boolean sifre=faceBookPage.sifreYanlisGirisYapilamadi.isDisplayed();
+//        System.out.println(sifre);
+//        System.out.println(kisi);
+//        System.out.println(mail);
 
-       if (mail){Assert.assertTrue(faceBookPage.emailYanlisGirisYapilamadi.isDisplayed());
-       }
-       else if (kisi) {Assert.assertTrue(faceBookPage.kisiTeyitGirisYapilamadi.isDisplayed());
+try {           //Facebook sayfasina girerken uc farkli uyari geliyor
 
-       } else if (sifre) {Assert.assertTrue(faceBookPage.sifreYanlisGirisYapilamadi.isDisplayed());
+    Assert.assertTrue(faceBookPage.emailYanlisGirisYapilamadi.isDisplayed());//yanlis email testi
 
-       }
+    }
+        catch (Exception e){
+
+         try{
+
+             Assert.assertTrue(faceBookPage.sifreYanlisGirisYapilamadi.isDisplayed());// yanlis parola testi
+
+                }catch (Exception e1){
+
+                    try{
+                        Assert.assertTrue(faceBookPage.kisiTeyitGirisYapilamadi.isDisplayed());//resimli uyari olan bu siz misiniz testi
+
+                      }
+                    catch (Exception e2){
+
+                       }
+         }
+
+}
+
+
+
+
+//
+//       if (mail){
+//       }
+//       else if (kisi) {
+//
+//       } else if (sifre) {Assert.assertTrue(faceBookPage.sifreYanlisGirisYapilamadi.isDisplayed());
+//
+//       }
+
 
        /*
        // Basarili giris yapilamadigini test edin
