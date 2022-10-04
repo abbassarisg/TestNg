@@ -22,4 +22,10 @@ public class C03_Priority extends TestBaseBeforeMethodAfterMethod {
     public void testAmazon() {
         driver.get("https://www.amazon.com");
     }
+
+    @Test(priority =-1,groups = "gp1")
+    public void testHepsiBurada() {
+        driver.get("https://hepsiburada.com");
+    }
+
 }

@@ -20,7 +20,7 @@ public abstract class TestBaseBeforeMethodAfterMethod {
     //Çalışma prensibi JUnit deki Before,After ile aynıdır
 
 
-    @BeforeMethod
+    @BeforeMethod(groups = "gp1")
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -34,7 +34,7 @@ public abstract class TestBaseBeforeMethodAfterMethod {
 
     }
 
-    @AfterMethod
+    @AfterMethod(groups = "gp1")
     public void tearDown() {
         //driver.close();
 

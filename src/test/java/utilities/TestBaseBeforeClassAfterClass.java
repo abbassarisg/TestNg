@@ -14,7 +14,7 @@ public abstract class TestBaseBeforeClassAfterClass {
     protected  WebDriver driver;
 
     //TestNG de beforeclass v after class i kullanirken static(degisken methodu) yapmaya gerek yok
-    @BeforeClass
+    @BeforeClass(groups = "gp1")
 
     public void setUp(){
         WebDriverManager.chromedriver().setup();
@@ -22,7 +22,7 @@ public abstract class TestBaseBeforeClassAfterClass {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
-    @AfterClass
+    @AfterClass(groups = "gp1")
     public  void tearDown(){
         //driver.quit;
     }

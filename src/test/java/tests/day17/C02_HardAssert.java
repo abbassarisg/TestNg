@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import utilities.TestBaseBeforeMethodAfterMethod;
 
 public class C02_HardAssert extends TestBaseBeforeMethodAfterMethod {
-    @Test
+    @Test(groups = "gp1")
     public void test01() {
         // Hard Assertions : JUNit'te öğrendiğimiz assertion ile aynıdır.
         // Assert.assertTrue();  Assert.assertFalse();  Assert.assertEquals();
