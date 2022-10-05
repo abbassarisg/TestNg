@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
+
+import static utilities.Driver.driver;
+
 public class ReusableMethods {
     //========ScreenShot(Syafanın resmini alma)=====//
     public static String getScreenshot(String name) throws IOException {
@@ -131,4 +134,8 @@ public class ReusableMethods {
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
     }
+
+
+
+
 }

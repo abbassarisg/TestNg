@@ -16,5 +16,5 @@ public class AmazonPage {
     public WebElement aramaKutusu;
 
     @FindBy(xpath="//*[@class='a-section a-spacing-small a-spacing-top-small']")
-    public WebElement sonuc;
+    public WebElement aramaSonucuWE;
 }
