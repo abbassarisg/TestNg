@@ -1,32 +1,23 @@
 package utilities;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
-
+import org.openqa.selenium.opera.OperaDriver;
 import java.time.Duration;
-
 public class Driver {
-
-    private Driver() {
+    private Driver(){
     }
-
     static WebDriver driver;
-
     /*
-Testleri calistirdigimizda her seferinde yeni driver olusturdugu icin her test methodu icin yeni
-bir pencere (driver) aciyor.Eger driver'a bir deger atanmamissa yani driver==null ise
-bir kere driver'i calistir diyerek bir kere if icini calistiracak ve driver artik bir kere
- calistigi icin ve deger atandigi icin null olmayacak ve direk return edecek ve diger testlerimiz
- ayni pencerede (driver) uzerinde calisacak
-
- */
-
-
+    Testlerimizi çalıştırdığımızda her seferinde yeni driver oluşturduğu için her test methodu
+    için yeni bir pencere(driver) açıyor. Eğer driver'a bir değer atanmamışsa yani driver==null ise
+    bir kere driver'i çalıştır diyerek bir kere if içini çalıştıracak. Ve driver artık bir kere
+    çalıştığı için ve değer atandığı için null olmayacak ve direk return edecek ve diğer
+    teslerimiz aynı pencere(driver) üzerinde çalışacak
+     */
     public static WebDriver getDriver() {
         if (driver == null) {
             switch (ConfigReader.getProperty("browser")){
@@ -34,9 +25,17 @@ bir kere driver'i calistir diyerek bir kere if icini calistiracak ve driver arti
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
-                case "safari" :
-                    WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
+                case "chrome" :
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
+                    break;
+                case "opera" :
+                    WebDriverManager.operadriver().setup();
+                    driver = new OperaDriver();
+                    break;
+                case "headless-chrome" :
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();

@@ -44,7 +44,7 @@ public class C01_RaporluTest extends TestBaseRapor {
         extentTest.info("Dogru kullanici ve password girildi ve login yapildi");
     // -Degerleri girildiginde sayfaya basarili sekilde girilebildigini test et
         String actualUserName=brc.brcBasariliGiris.getText();
-        String expectedUserName="Jo Walker";
+        String expectedUserName="John Walker";
         Assert.assertEquals(expectedUserName,actualUserName);
         extentTest.info("Sayfa test sonuclari PASSED");
     }

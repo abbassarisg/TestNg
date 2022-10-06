@@ -19,5 +19,8 @@ public class BrcPages {
     @FindBy(xpath = "//*[@id='dropdown-basic-button']")
     public WebElement brcBasariliGiris;
 
+    @FindBy (xpath = "//*[@class='btn btn-primary']")
+    public WebElement ikinciLogin;
+
 
 }

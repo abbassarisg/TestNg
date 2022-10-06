@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
@@ -36,23 +37,25 @@ bir kere driver'i calistir diyerek bir kere if icini calistiracak ve driver arti
         //  parametre atmamiz geekir
         if (driver == null) {
             switch (ConfigReader.getProperty("browser")){
-                //Crossbrowser icin bizim gonderdigimiz browser uzerinden calismasi icin
-                //buraya parametre olarak girdigimiz degeri yazdik
                 case "edge" :
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
-                case "safari" :
-                    WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
-                    break;
                 case "chrome" :
                     WebDriverManager.chromedriver().setup();
-                    driver = new SafariDriver();
+                    driver = new ChromeDriver();
+                    break;
+                case "opera" :
+                    WebDriverManager.operadriver().setup();
+                    driver = new OperaDriver();
+                    break;
+                case "headless-chrome" :
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 default:
-                    WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver();
             }
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
